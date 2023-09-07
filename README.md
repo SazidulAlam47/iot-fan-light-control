@@ -34,7 +34,7 @@
 </ol>
 
 <h2>Connection Diagram</h2>
-<img src="circuit.png" alt="Connection Diagram">
+<img src="connection_diagram.png" alt="Connection Diagram">
 
 <h2>Code Structure</h2>
 <ul>
