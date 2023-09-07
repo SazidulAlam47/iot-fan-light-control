@@ -61,8 +61,6 @@
 <h2>Video Demonstration</h2>
 <p>Watch the video below to see the project in action:</p>
 
-<iframe width="324" height="576" src="https://www.youtube.com/embed/8VW1l3-9EXs" title="My first IoT Project | Light &amp; Fan Control with ESP8266 and Relay" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
 [![Demonstration Video](https://img.youtube.com/vi/8VW1l3-9EXs/0.jpg)](https://www.youtube.com/watch?v=8VW1l3-9EXs)
 
 <h2>Contributing</h2>
