@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<widget
+    android-versionCode = '1'
+    id = 'com.sazidul.HomeAutomation'
+    version = '1.0.0'
+    xmlns = 'https://www.w3.org/ns/widgets'>
+
+    <name>Home Automation</name>
+    <description>Control you room light and fan from anywhere.</description>
+    <author>Sazidul Alam</author>
+    <icon src="resources/iconTemplate.png" />
+    <preference name="SplashScreenDelay" value="2000" />
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="AndroidWindowSplashScreenAnimatedIcon" value="resources/splashTemplate.png" />
+    <preference name="AndroidWindowSplashScreenBackground" value="#000000" />
+    <preference name = 'orientation' value = 'portrait'/>
+</widget>
