@@ -61,7 +61,7 @@
 <h2>Video Demonstration</h2>
 <p>Watch the video below to see the project in action:</p>
 
-[![Demonstration Video](https://img.youtube.com/vi/8VW1l3-9EXs/0.jpg)](https://www.youtube.com/watch?v=8VW1l3-9EXs)
+[![Demonstration Video](https://img.youtube.com/vi/8VW1l3-9EXs/0.jpg)](https://www.youtube.com/shorts/8VW1l3-9EXs?feature=share)
 
 <h2>Contributing</h2>
 <p>If you'd like to contribute to this project or report issues, please open an issue or submit a pull request on the GitHub repository.</p>
