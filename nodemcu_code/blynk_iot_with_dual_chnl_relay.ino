@@ -88,7 +88,7 @@ void setup() {
   pinMode(switchPin2, INPUT_PULLUP);
   WiFi.begin(ssid, pass);
   Blynk.config(BLYNK_AUTH_TOKEN);
-  timer.setInterval(60000L, checkBlynk);  // check if connected to Blynk server every 3 seconds
+  timer.setInterval(3000L, checkBlynk);  // check if connected to Blynk server every 3 seconds
 }
 
 void loop() {
