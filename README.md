@@ -1,6 +1,6 @@
-# IoT Home Automation Project with NodeMCU ESP8266
+# IoT Home Automation Project with NodeMCU ESP8266 (ESP-12E Module)
     
-<p>Welcome to the official GitHub repository for the IoT Fan and Light Control project. This project harnesses advanced technology, utilizing the NodeMCU ESP8266 and a relay module to exert precise control over a room's lighting and ceiling fan. The project's control interface is conveniently accessible through a responsive web application (Web App), providing users with seamless management of their environment.</p>
+<p>Welcome to the official GitHub repository for the IoT Fan and Light Control project. This project harnesses advanced technology, utilizing the NodeMCU ESP8266 (ESP-12E Module) and a relay module to exert precise control over a room's lighting and ceiling fan. The project's control interface is conveniently accessible through a responsive web application (Web App), providing users with seamless management of their environment.</p>
 
 <p>What sets this project apart is its integration with the Blynk cloud platform, which not only stores device state data but also empowers users with remote control capabilities from anywhere in the world. Whether you're at home or halfway around the globe, you can effortlessly manage your fan and light settings through the intuitive Web App.</p>
 
@@ -10,7 +10,7 @@
 <ul>
     <li>Control fan and light remotely through a web interface.</li>
     <li>Seamless integration with Google Assistant for voice control.</li>
-    <li>Utilizes the NodeMCU ESP8266 and relay module for IoT functionality.</li>
+    <li>Utilizes the NodeMCU ESP8266 (ESP-12E Module) and relay module for IoT functionality.</li>
     <li>Real-time status updates using Blynk cloud for on/off state.</li>
     <li>Easy-to-understand code for both the ESP8266 and the web interface.</li>
     <li>Web application built with VoltBuilder.</li>
@@ -19,7 +19,7 @@
 
 <h2>Project Components</h2>
 <ul>
-    <li>NodeMCU ESP8266</li>
+    <li>NodeMCU ESP8266 (ESP-12E Module)</li>
     <li>Relay Module</li>
     <li>Web App for control</li>
     <li>Blynk Cloud integration</li>
@@ -27,9 +27,9 @@
 
 <h2>Getting Started</h2>
 <ol>
-    <li><strong>Hardware Setup</strong>: Begin by establishing the hardware configuration. Connect the NodeMCU ESP8266 to the relay module and the fan/light as shown in the diagram below</li>
+    <li><strong>Hardware Setup</strong>: Begin by establishing the hardware configuration. Connect the NodeMCU ESP8266 (ESP-12E Module) to the relay module and the fan/light as shown in the diagram below</li>
     <li><strong>Blynk Cloud Setup</strong>: Proceed to set up your Blynk Cloud account by visiting the official <a href="https://www.blynk.io/" target="_blank">Blynk</a> website. Create your account, establish your IoT template and project, and then generate your unique Blynk Automation Token.</li>
-    <li><strong>ESP8266 Code Configuration</strong>: Access the ESP8266 code, situated within the <code>/esp8266_code</code> directory. Within this code, replace the Blynk Automation Token with your uniquely generated token, and additionally, provide the SSID and Password of your wireless router. Once this code customization is complete, proceed to upload the modified code to your NodeMCU ESP8266 utilizing the Arduino IDE.</li>
+    <li><strong>NodeMCU Code Configuration</strong>: Access the NodeMCU (ESP-12E Module) code, situated within the <code>/nodemcu_code</code> directory. Within this code, replace the Blynk Automation Token with your uniquely generated token, and additionally, provide the SSID and Password of your wireless router. Once this code customization is complete, proceed to upload the modified code to your NodeMCU 1.0 (ESP-12E Module) utilizing the Arduino IDE.</li>
     <li><strong>Web App</strong>: For the web application component, upload the provided web app code found in the <code>/web_app_code</code> directory to VoltBuilder. This process will convert the web interface into a native application. Ensure you provide your Blynk Automation Token within the Blynk API in the JavaScript code during this step.</li>
 </ol>
 
@@ -38,7 +38,7 @@
 
 <h2>Code Structure</h2>
 <ul>
-    <li><code>/esp8266_code</code>: Contains the Arduino sketch for the NodeMCU ESP8266.</li>
+    <li><code>/nodemcu_code</code>: Contains the Arduino sketch for the NodeMCU 1.0 (ESP-12E Module).</li>
     <li><code>/web_app_code</code>: Includes the HTML, CSS, and JavaScript files for the web App.</li>
 </ul>
 
