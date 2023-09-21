@@ -20,7 +20,6 @@ But the innovation doesn't stop there. In addition to the Web App interface, thi
 This project includes a power state retention feature that ensures the fan and light settings remain unchanged after a power outage or load shedding event. This feature enhances user convenience by preserving your preferred device state.
 
 **How it works:**
-
 - **State Preservation**: Before a power cut, the system records the current state of the fan and light and saves it in the EEPROM of the ESP8266.
 - **Automatic Restoration**: When power is restored, the system automatically retrieves the saved settings from the EEPROM and restores the devices to their previous state.
 
