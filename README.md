@@ -21,8 +21,6 @@ This project includes a power state retention feature that ensures the fan and l
 
 **How it works:**
 
-**How it works:**
-
 - **State Preservation**: Before a power cut, the system records the current state of the fan and light and saves it in the EEPROM of the ESP8266.
 - **Automatic Restoration**: When power is restored, the system automatically retrieves the saved settings from the EEPROM and restores the devices to their previous state.
 
