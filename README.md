@@ -1,75 +1,73 @@
 # IoT Home Automation Project with NodeMCU ESP8266 (ESP-12E Module)
-    
-<p>Welcome to the official GitHub repository for the IoT Fan and Light Control project. This project harnesses advanced technology, utilizing the NodeMCU ESP8266 (ESP-12E Module) and a relay module to exert precise control over a room's lighting and ceiling fan. The project's control interface is conveniently accessible through a responsive web application (Web App), providing users with seamless management of their environment.</p>
 
-<p>What sets this project apart is its integration with the Blynk cloud platform, which not only stores device state data but also empowers users with remote control capabilities from anywhere in the world. Whether you're at home or halfway around the globe, you can effortlessly manage your fan and light settings through the intuitive Web App.</p>
+Welcome to the official GitHub repository for the IoT Fan and Light Control project. This project harnesses advanced technology, utilizing the NodeMCU ESP8266 (ESP-12E Module) and a relay module to exert precise control over a room's lighting and ceiling fan. The project's control interface is conveniently accessible through a responsive web application (Web App), providing users with seamless management of their environment.
 
-<p>But the innovation doesn't stop there. In addition to the Web App interface, this project features a cutting-edge integration with Google Assistant through IFTTT. Voice commands become your control tool, allowing you to operate your fan and light simply by speaking to your smart assistant. This fusion of IoT technology and voice control enhances the convenience and accessibility of your living space.</p>
+What sets this project apart is its integration with the Blynk cloud platform, which not only stores device state data but also empowers users with remote control capabilities from anywhere in the world. Whether you're at home or halfway around the globe, you can effortlessly manage your fan and light settings through the intuitive Web App.
 
-<h2>Features</h2>
-<ul>
-    <li>Control fan and light remotely through a web interface.</li>
-    <li>Seamless integration with Google Assistant for voice control.</li>
-    <li>Utilizes the NodeMCU ESP8266 (ESP-12E Module) and relay module for IoT functionality.</li>
-    <li>Real-time status updates using Blynk cloud for on/off state.</li>
-    <li>Easy-to-understand code for both the ESP8266 and the web interface.</li>
-    <li>Web application built with VoltBuilder.</li>
-    <li>Video demonstration of the project in action.</li>
-</ul>
+But the innovation doesn't stop there. In addition to the Web App interface, this project features a cutting-edge integration with Google Assistant through IFTTT. Voice commands become your control tool, allowing you to operate your fan and light simply by speaking to your smart assistant. This fusion of IoT technology and voice control enhances the convenience and accessibility of your living space.
 
-<h2>Project Components</h2>
-<ul>
-    <li>NodeMCU ESP8266 (ESP-12E Module)</li>
-    <li>Relay Module</li>
-    <li>Web App for control</li>
-    <li>Blynk Cloud integration</li>
-</ul>
+## Features
+- Control fan and light remotely through a web interface.
+- Seamless integration with Google Assistant for voice control.
+- Utilizes the NodeMCU ESP8266 (ESP-12E Module) and relay module for IoT functionality.
+- Real-time status updates using Blynk cloud for on/off state.
+- Easy-to-understand code for both the ESP8266 and the web interface.
+- Web application built with VoltBuilder.
+- Video demonstration of the project in action.
 
-<h2>Getting Started</h2>
-<ol>
-    <li><strong>Hardware Setup</strong>: Begin by establishing the hardware configuration. Connect the NodeMCU ESP8266 (ESP-12E Module) to the relay module and the fan/light as shown in the diagram below</li>
-    <li><strong>Blynk Cloud Setup</strong>: Proceed to set up your Blynk Cloud account by visiting the official <a href="https://www.blynk.io/" target="_blank">Blynk</a> website. Create your account, establish your IoT template and project, and then generate your unique Blynk Automation Token.</li>
-    <li><strong>NodeMCU Code Configuration</strong>: Access the NodeMCU (ESP-12E Module) code, situated within the <code>/nodemcu_code</code> directory. Within this code, replace the Blynk Automation Token with your uniquely generated token, and additionally, provide the SSID and Password of your wireless router. Once this code customization is complete, proceed to upload the modified code to your NodeMCU 1.0 (ESP-12E Module) utilizing the Arduino IDE.</li>
-    <li><strong>Web App</strong>: For the web application component, upload the provided web app code found in the <code>/web_app_code</code> directory to VoltBuilder. This process will convert the web interface into a native application. Ensure you provide your Blynk Automation Token within the Blynk API in the JavaScript code during this step.</li>
-</ol>
+## Recover Fan and Light State After Power Interruption
 
-<h2>Connection Diagram</h2>
-<img src="connection_diagram.png" alt="Connection Diagram">
+This project includes a power state retention feature that ensures the fan and light settings remain unchanged after a power outage or load shedding event. This feature enhances user convenience by preserving your preferred device state.
 
-<h2>Code Structure</h2>
-<ul>
-    <li><code>/nodemcu_code</code>: Contains the Arduino sketch for the NodeMCU 1.0 (ESP-12E Module).</li>
-    <li><code>/web_app_code</code>: Includes the HTML, CSS, and JavaScript files for the web App.</li>
-</ul>
+**How it works:**
 
-<h2>Web Application (Powered by VoltBuilder)</h2>
-<p>The web application for controlling the fan and light in this project was built using <a href="https://volt.build/" target="_blank">VoltBuilder</a>. VoltBuilder is a powerful tool for creating cross-platform web applications from your HTML, CSS, and JavaScript code. It allows you to easily package and deploy your web app on various platforms, making it accessible to a wider audience.</p>
+**How it works:**
 
-<h2>Google Assistant Integration</h2>
-<p>Enhance the convenience and functionality of your IoT Fan and Light Control project by seamlessly integrating it with Google Assistant. With the power of voice commands, you can control your fan and light effortlessly. Here's how to set it up:</p>
+- **State Preservation**: Before a power cut, the system records the current state of the fan and light and saves it in the EEPROM of the ESP8266.
+- **Automatic Restoration**: When power is restored, the system automatically retrieves the saved settings from the EEPROM and restores the devices to their previous state.
 
-<ol>
-    <li><strong>IFTTT Account</strong>: Ensure you have an active account on <a href="https://ifttt.com/" target="_blank">IFTTT</a> (If This Then That).</li>
-    <li><strong>Blynk API Key</strong>: Retrieve your Blynk API key from your Blynk cloud account, which is essential for communication with your IoT devices.</li>
-    <li><strong>Google Assistant Applet</strong>: Create custom applets in IFTTT, connecting Google Assistant to your Blynk-based IoT project. Set up voice triggers and the Blynk API Webhook to control the fan and light.</li>
-    <li><strong>Voice Control</strong>: Once the integration is complete, simply use voice commands with Google Assistant to activate or deactivate the fan and light, enhancing the accessibility and ease of use of your IoT solution.</li>
-</ol>
+This intelligent use of EEPROM storage ensures that your preferred device settings are securely retained, even in the event of a power interruption.
 
-<p>This integration opens up exciting possibilities for hands-free control of your environment, making your IoT project even more versatile and user-friendly.</p>
+## Project Components
+- NodeMCU ESP8266 (ESP-12E Module)
+- Relay Module
+- Web App for control
+- Blynk Cloud integration
 
+## Getting Started
+1. **Hardware Setup**: Begin by establishing the hardware configuration. Connect the NodeMCU ESP8266 (ESP-12E Module) to the relay module and the fan/light as shown in the diagram below.
+2. **Blynk Cloud Setup**: Proceed to set up your Blynk Cloud account by visiting the official [Blynk](https://www.blynk.io/) website. Create your account, establish your IoT template and project, and then generate your unique Blynk Automation Token.
+3. **NodeMCU Code Configuration**: Access the NodeMCU (ESP-12E Module) code, situated within the `/nodemcu_code` directory. Within this code, replace the Blynk Automation Token with your uniquely generated token, and additionally, provide the SSID and Password of your wireless router. Once this code customization is complete, proceed to upload the modified code to your NodeMCU 1.0 (ESP-12E Module) utilizing the Arduino IDE.
+4. **Web App**: For the web application component, upload the provided web app code found in the `/web_app_code` directory to VoltBuilder. This process will convert the web interface into a native application. Ensure you provide your Blynk Automation Token within the Blynk API in the JavaScript code during this step.
 
-<h2>Video Demonstration</h2>
-<p>Watch the video below to see the project in action:</p>
-<a href="https://www.youtube.com/shorts/8VW1l3-9EXs?feature=share" target="_blank">
-    <img src="https://img.youtube.com/vi/8VW1l3-9EXs/0.jpg" alt="Demonstration Video" />
-</a>
+## Connection Diagram
+![Connection Diagram](connection_diagram.png)
 
-<h2>Contributing</h2>
-<p>If you'd like to contribute to this project or report issues, please open an issue or submit a pull request on the GitHub repository.</p>
+## Code Structure
+- `/nodemcu_code`: Contains the Arduino sketch for the NodeMCU 1.0 (ESP-12E Module).
+- `/web_app_code`: Includes the HTML, CSS, and JavaScript files for the web App.
 
-<h2>Acknowledgments</h2>
-<p>I would like to acknowledge the following for their contributions to this project:</p>
-<ul>
-    <li><a href="https://www.blynk.io/" target="_blank">Blynk</a> - for providing a robust platform for IoT device control and data storage.</li>
-    <li><a href="https://volt.build/" target="_blank">VoltBuilder</a> - for making the development and deployment of the web application seamless and efficient.</li>
-</ul>
+## Web Application (Powered by VoltBuilder)
+The web application for controlling the fan and light in this project was built using [VoltBuilder](https://volt.build/). VoltBuilder is a powerful tool for creating cross-platform web applications from your HTML, CSS, and JavaScript code. It allows you to easily package and deploy your web app on various platforms, making it accessible to a wider audience.
+
+## Google Assistant Integration
+Enhance the convenience and functionality of your IoT Fan and Light Control project by seamlessly integrating it with Google Assistant. With the power of voice commands, you can control your fan and light effortlessly. Here's how to set it up:
+1. **IFTTT Account**: Ensure you have an active account on [IFTTT](https://ifttt.com/) (If This Then That).
+2. **Blynk API Key**: Retrieve your Blynk API key from your Blynk cloud account, which is essential for communication with your IoT devices.
+3. **Google Assistant Applet**: Create custom applets in IFTTT, connecting Google Assistant to your Blynk-based IoT project. Set up voice triggers and the Blynk API Webhook to control the fan and light.
+4. **Voice Control**: Once the integration is complete, simply use voice commands with Google Assistant to activate or deactivate the fan and light, enhancing the accessibility and ease of use of your IoT solution.
+
+This integration opens up exciting possibilities for hands-free control of your environment, making your IoT project even more versatile and user-friendly.
+
+## Video Demonstration
+Watch the video below to see the project in action:
+
+[![Demonstration Video](https://img.youtube.com/vi/8VW1l3-9EXs/0.jpg)](https://www.youtube.com/shorts/8VW1l3-9EXs?feature=share)
+
+## Contributing
+If you'd like to contribute to this project or report issues, please open an issue or submit a pull request on the GitHub repository.
+
+## Acknowledgments
+I would like to acknowledge the following for their contributions to this project:
+- [Blynk](https://www.blynk.io/) - for providing a robust platform for IoT device control and data storage.
+- [VoltBuilder](https://volt.build/) - for making the development and deployment of the web application seamless and efficient.

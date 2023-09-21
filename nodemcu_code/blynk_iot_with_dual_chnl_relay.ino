@@ -1,5 +1,5 @@
 /***********************************
-This code is for a Low level Trigger relay Module
+This code is for a Low level Triger relay
 and a switch with digital pin and ground connection with
 NodeMCU ESP8266 board
 --------------------
@@ -8,7 +8,7 @@ in this code
 0 is ON
 --------------------
 ***********************************/
-
+#include <EEPROM.h>
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
 BlynkTimer timer;
@@ -28,11 +28,15 @@ bool switchState1 = 0;
 bool switchStateOld1 = 0;
 bool blynkState1 = 1;
 bool blynkStateOld1 = 1;
+int eeprom_relay1 = 1;
+int eeprom_switch1 = 3;
 
 bool switchState2 = 0;
 bool switchStateOld2 = 0;
 bool blynkState2 = 1;
 bool blynkStateOld2 = 1;
+int eeprom_relay2 = 2;
+int eeprom_switch2 = 4;
 
 bool isBlynkConnected = 0;
 
@@ -49,11 +53,14 @@ BLYNK_WRITE(V0) {
     //turn off relay 1
     digitalWrite(relayPin1, 1);
     Blynk.virtualWrite(V1, 1);
+    EEPROM.write(eeprom_relay1, 1);
     blynkStateOld1 = 1;
     //turn off relay 2
     digitalWrite(relayPin2, 1);
     Blynk.virtualWrite(V2, 1);
+    EEPROM.write(eeprom_relay2, 1);
     blynkStateOld2 = 1;
+    EEPROM.commit(); // Save the data to EEPROM
   }
   allOffOld = allOff;
 }
@@ -65,6 +72,8 @@ BLYNK_WRITE(V1) {
     Serial.println(blynkState1);
     digitalWrite(relayPin1, blynkState1);
     blynkStateOld1 = blynkState1;
+    EEPROM.write(eeprom_relay1, blynkState1);
+    EEPROM.commit(); // Save the data to EEPROM
   }
 }
 
@@ -75,17 +84,19 @@ BLYNK_WRITE(V2) {
     Serial.println(blynkState2);
     digitalWrite(relayPin2, blynkState2);
     blynkStateOld2 = blynkState2;
+    EEPROM.write(eeprom_relay2, blynkState2);
+    EEPROM.commit(); // Save the data to EEPROM
   }
 }
 
 void setup() {
+  EEPROM.begin(10);
   Serial.begin(9600);
   pinMode(relayPin1, OUTPUT);
   pinMode(relayPin2, OUTPUT);
-  digitalWrite(relayPin1, HIGH);  // off the ralay 1
-  digitalWrite(relayPin2, HIGH);  // off the ralay 2
   pinMode(switchPin1, INPUT_PULLUP);
   pinMode(switchPin2, INPUT_PULLUP);
+  restore_old_states();
   WiFi.begin(ssid, pass);
   Blynk.config(BLYNK_AUTH_TOKEN);
   timer.setInterval(3000L, checkBlynk);  // check if connected to Blynk server every 3 seconds
@@ -119,6 +130,37 @@ void loop() {
   delay(300);
 }
 
+void restore_old_states(){
+  blynkStateOld1 = EEPROM.read(eeprom_relay1);
+  blynkStateOld2 = EEPROM.read(eeprom_relay2);
+  switchStateOld1 = EEPROM.read(eeprom_switch1);
+  switchStateOld2 = EEPROM.read(eeprom_switch2);
+  switchState1 = digitalRead(switchPin1);
+  switchState2 = digitalRead(switchPin2);
+
+
+  if(switchStateOld1 == 0 && switchState1 == 1){
+    digitalWrite(relayPin1, HIGH);  // off the ralay 1
+  }
+  else if(blynkStateOld1 == 0){
+    digitalWrite(relayPin1, LOW); // on the ralay 1
+  }
+  else{
+    digitalWrite(relayPin1, HIGH);  // off the ralay 1
+  }
+
+
+  if(switchStateOld2 == 0 && switchState2 == 2){
+    digitalWrite(relayPin2, HIGH);  // off the ralay 2
+  }
+  else if(blynkStateOld2 == 0){
+    digitalWrite(relayPin2, LOW); // on the ralay 2
+  }
+  else{
+    digitalWrite(relayPin2, HIGH);  // off the ralay 2
+  }
+}
+
 void with_internet() {
   Blynk.virtualWrite(V1, blynkStateOld1);
   Blynk.virtualWrite(V2, blynkStateOld2);
@@ -130,6 +172,10 @@ void with_internet() {
     digitalWrite(relayPin1, switchState1);
     Blynk.virtualWrite(V1, switchState1);
     blynkStateOld1 = switchState1;
+    switchStateOld1 = switchState1;
+    EEPROM.write(eeprom_relay1, switchState1);
+    EEPROM.write(eeprom_switch1, switchState1);
+    EEPROM.commit(); // Save the data to EEPROM
   }
 
   switchState2 = digitalRead(switchPin2);
@@ -139,10 +185,12 @@ void with_internet() {
     digitalWrite(relayPin2, switchState2);
     Blynk.virtualWrite(V2, switchState2);
     blynkStateOld2 = switchState2;
+    switchStateOld2 = switchState2;
+    EEPROM.write(eeprom_relay2, switchState2);
+    EEPROM.write(eeprom_switch2, switchState2);
+    EEPROM.commit(); // Save the data to EEPROM
   }
 
-  switchStateOld1 = switchState1;
-  switchStateOld2 = switchState2;
 }
 
 void without_internet() {
@@ -153,6 +201,9 @@ void without_internet() {
     Serial.println(switchState1);
     digitalWrite(relayPin1, switchState1);
     blynkStateOld1 = switchState1;
+    EEPROM.write(eeprom_relay1, switchState1);
+    EEPROM.write(eeprom_switch1, switchState1);
+    EEPROM.commit(); // Save the data to EEPROM
   }
 
   switchState2 = digitalRead(switchPin2);
@@ -161,6 +212,9 @@ void without_internet() {
     Serial.println(switchState2);
     digitalWrite(relayPin2, switchState2);
     blynkStateOld2 = switchState2;
+    EEPROM.write(eeprom_relay2, switchState2);
+    EEPROM.write(eeprom_switch2, switchState2);
+    EEPROM.commit(); // Save the data to EEPROM
   }
 
   switchStateOld1 = switchState1;
