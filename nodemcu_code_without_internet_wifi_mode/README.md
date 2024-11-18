@@ -31,6 +31,10 @@ Before uploading the code, make sure you have the following:
 | D1          | Button 1 Input  |
 | D5          | Button 2 Input  |
 
+## Connection Diagram
+
+![Connection Diagram](../connection_diagram.png)
+
 ## How to Use
 
 1. **Setup Wi-Fi Credentials**:

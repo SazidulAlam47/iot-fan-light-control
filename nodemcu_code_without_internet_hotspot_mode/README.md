@@ -28,7 +28,7 @@ This project allows you to control two electrical loads using an ESP8266 microco
 
 ## Connection Diagram
 
-![Connection Diagram](connection_diagram.png)
+![Connection Diagram](../connection_diagram.png)
 
 Ensure that relays are connected to external loads appropriately and take necessary precautions when dealing with high-voltage circuits.
 
