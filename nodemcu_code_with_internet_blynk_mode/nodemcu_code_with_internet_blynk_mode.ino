@@ -8,15 +8,15 @@ in this code
 0 is ON
 --------------------
 ***********************************/
-#include <EEPROM.h>
-#include <ESP8266WiFi.h>
-#include <BlynkSimpleEsp8266.h>
-BlynkTimer timer;
-
 #define BLYNK_PRINT Serial
 #define BLYNK_TEMPLATE_ID "your-template-id"  // replace "your-template-id" with you Blynk Template ID
 #define BLYNK_TEMPLATE_NAME "your-template-name"  // replace "your-template-name" with you Blynk Template name
 #define BLYNK_AUTH_TOKEN "your-auth-token"  // replace "your-auth-token" with you Blynk Automation Token
+
+#include <EEPROM.h>
+#include <ESP8266WiFi.h>
+#include <BlynkSimpleEsp8266.h>
+BlynkTimer timer;
 
 #define relayPin1 D0
 #define switchPin1 D1
