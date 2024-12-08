@@ -45,7 +45,7 @@ But the innovation doesn't stop there. In addition to the Web App interface, thi
 
 ## Code Structure
 
--   `/nodemcu_code_with_internet_blynk_mode_(LEGACY-not_compatible_with_current_platform)`: Contains the Arduino sketch for the NodeMCU 1.0 (ESP-12E Module).
+-   `/nodemcu_code_with_internet_blynk_mode`: Contains the Arduino sketch for the NodeMCU 1.0 (ESP-12E Module).
 -   `/web_app_code`: Includes the HTML, CSS, and JavaScript files for the web App.
 
 ## Web Application (Powered by VoltBuilder)
